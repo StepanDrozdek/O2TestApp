@@ -31,11 +31,13 @@ fun ScratchScreen(navController: NavController) {
                     .fillMaxWidth(0.7f)
                     .fillMaxHeight(0.2f),
                 onClick = {
-                    job = CoroutineScope(Dispatchers.IO).launch {
-                        val uuid = UUID.randomUUID()
-                        val data = ScratchCardModel(code = uuid.toString(), state = ScratchCardState.SCRATCHED )
-                        delay(2000)
-                        Global.scratchCard.postValue(data)
+                    if (job == null){
+                        job = CoroutineScope(Dispatchers.IO).launch {
+                            val uuid = UUID.randomUUID()
+                            val data = ScratchCardModel(code = uuid.toString(), state = ScratchCardState.SCRATCHED )
+                            delay(2000)
+                            Global.scratchCard.postValue(data)
+                        }
                     }
                 }) {
                 Text(

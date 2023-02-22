@@ -38,7 +38,7 @@ fun ScratchCard() {
             ScratchCardState.ACTIVE -> {
                 Text(text = "ACTIVATED CODE ${scratchCard.code}",
                     modifier = Modifier.align(Alignment.CenterVertically),
-                    color = Color.White
+                    color = Color.Green
                 )
             }
         }
