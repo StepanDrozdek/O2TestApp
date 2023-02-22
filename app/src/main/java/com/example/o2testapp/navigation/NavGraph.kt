@@ -18,7 +18,7 @@ fun NavGraph(navController: NavHostController) {
             HomeScreen(navController = navController)
         }
         composable(route = Screens.Scratch.route){
-            ScratchScreen()
+            ScratchScreen(navController = navController)
         }
         composable(route = Screens.Activate.route){
             ActivateScreen()
