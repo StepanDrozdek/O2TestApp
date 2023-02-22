@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.o2testapp.ui.screens.ActivateScreen
-import com.example.o2testapp.ui.screens.HomeScreen
-import com.example.o2testapp.ui.screens.ScratchScreen
+import com.example.o2testapp.view.ActivateScreen
+import com.example.o2testapp.view.HomeScreen
+import com.example.o2testapp.view.ScratchScreen
 
 @Composable
 fun NavGraph(navController: NavHostController) {
