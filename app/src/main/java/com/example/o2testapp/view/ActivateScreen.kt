@@ -6,15 +6,16 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.o2testapp.constants.Global
-import com.example.o2testapp.constants.ScratchCardState
 import com.example.o2testapp.view.components.ScratchCard
 import com.example.o2testapp.viewModel.ActivateScreenViewModel
 
 @Composable
 fun ActivateScreen() {
     val viewModel = ActivateScreenViewModel()
+    val context = LocalContext.current
     Column(Modifier.fillMaxSize()) {
         ScratchCard()
         Row(modifier = Modifier
@@ -27,11 +28,10 @@ fun ActivateScreen() {
                     .fillMaxWidth(0.7f)
                     .fillMaxHeight(0.2f),
                 onClick = {
-
                     val data = Global.scratchCard.value?.copy()
-                    data?.code?.let { viewModel.callO2(it) }
-                    data?.state = ScratchCardState.ACTIVE
-                    Global.scratchCard.postValue(data)
+                    if (data != null) {
+                        viewModel.callO2(data, context)
+                    }
                 }) {
                 Text(
                     text = "Activate"
