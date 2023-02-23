@@ -11,11 +11,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.o2testapp.constants.Global
 import com.example.o2testapp.constants.ScratchCardState
-import com.example.o2testapp.models.ScratchCardModel
-import com.example.o2testapp.view.components.ScratchCard
+import com.example.o2testapp.view.shared.ScratchCard
 import com.example.o2testapp.viewModel.ScratchScreenViewModel
 import kotlinx.coroutines.*
-import java.util.*
 
 @Composable
 fun ScratchScreen(navController: NavController) {

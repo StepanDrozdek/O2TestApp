@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 import com.example.o2testapp.constants.Global
 import com.example.o2testapp.constants.ScratchCardState
 import com.example.o2testapp.navigation.Screens
-import com.example.o2testapp.view.components.ScratchCard
+import com.example.o2testapp.view.shared.ScratchCard
 
 @Composable
 fun HomeScreen(navController: NavController) {
