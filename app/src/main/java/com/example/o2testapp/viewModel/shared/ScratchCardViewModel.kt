@@ -1,4 +1,4 @@
-package com.example.o2testapp.viewModel.components
+package com.example.o2testapp.viewModel.shared
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

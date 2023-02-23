@@ -1,4 +1,4 @@
-package com.example.o2testapp.view.components
+package com.example.o2testapp.view.shared
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.o2testapp.constants.ScratchCardState
-import com.example.o2testapp.viewModel.components.ScratchCardViewModel
+import com.example.o2testapp.viewModel.shared.ScratchCardViewModel
 
 @Composable
 fun ScratchCard() {
