@@ -30,7 +30,7 @@ fun ActivateScreen() {
                 onClick = {
                     val data = Global.scratchCard.value?.copy()
                     if (data != null) {
-                        viewModel.callO2(data, context)
+                        viewModel.createRestApiAndCallO2(data, context)
                     }
                 }) {
                 Text(

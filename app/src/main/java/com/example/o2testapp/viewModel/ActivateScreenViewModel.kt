@@ -23,17 +23,23 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class ActivateScreenViewModel: ViewModel() {
-    val okHttpClient = OkHttpClient.Builder().build()
+    private val okHttpClient = OkHttpClient.Builder().build()
 
-    val retrofit = Retrofit.Builder()
+    private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.o2.sk")
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun callO2(scratchData: ScratchCardModel, context: Context) {
+
+
+    fun createRestApiAndCallO2(scratchData: ScratchCardModel, context: Context){
+        val restApi = retrofit.create(RestApi::class.java)
+        callO2(scratchData = scratchData, context = context, restApi = restApi)
+    }
+
+    fun callO2(scratchData: ScratchCardModel, context: Context, restApi: RestApi) {
         scratchData.code?.let { code ->
-            val restApi = retrofit.create(RestApi::class.java)
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val response = restApi.getO2Response(code = code)

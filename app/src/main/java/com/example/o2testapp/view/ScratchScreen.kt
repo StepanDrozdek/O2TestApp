@@ -13,11 +13,13 @@ import com.example.o2testapp.constants.Global
 import com.example.o2testapp.constants.ScratchCardState
 import com.example.o2testapp.models.ScratchCardModel
 import com.example.o2testapp.view.components.ScratchCard
+import com.example.o2testapp.viewModel.ScratchScreenViewModel
 import kotlinx.coroutines.*
 import java.util.*
 
 @Composable
 fun ScratchScreen(navController: NavController) {
+    val viewModel = ScratchScreenViewModel()
     var job: Job? = null
     Column(Modifier.fillMaxSize()) {
         ScratchCard()
@@ -32,12 +34,7 @@ fun ScratchScreen(navController: NavController) {
                     .fillMaxHeight(0.2f),
                 onClick = {
                     if (job == null){
-                        job = CoroutineScope(Dispatchers.IO).launch {
-                            val uuid = UUID.randomUUID()
-                            val data = ScratchCardModel(code = uuid.toString(), state = ScratchCardState.SCRATCHED )
-                            delay(2000)
-                            Global.scratchCard.postValue(data)
-                        }
+                        job = viewModel.scratch()
                     }
                 }) {
                 Text(
